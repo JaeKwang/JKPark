@@ -19,7 +19,7 @@ function calculate() {
         break;
       case "divide":
         if (num2 == 0) result = "Error Divided By 0";
-        result = num1 % num2;
+        else result = num1 % num2;
         break;
       default:
         result = "Invalid operation!";
