@@ -18,7 +18,7 @@ addButton.addEventListener("click", () => {
 
   // 삭제 버튼 추가
   const deleteButton = document.createElement("button");
-  deleteButton.textContent = "Delete";
+  deleteButton.textContent = "삭제";
   deleteButton.style.marginLeft = "10px";
   deleteButton.style.padding = "5px";
   deleteButton.style.border = "none";
