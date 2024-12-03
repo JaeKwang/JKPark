@@ -3,53 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To-Do List</title>
+    <title>Simple Calculator</title>
   </head>
   <body>
-    <!-- Header -->
-    <header>
-      <h1>To-Do List</h1>
-      <p>Stay organized by adding and managing your tasks!</p>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-      <!-- Task Input Section -->
-      <section id="task-input">
-        <h2>Add New Task</h2>
-        <form action="#" method="post">
-          <input
-            type="text"
-            id="new-task"
-            name="task"
-            placeholder="Enter a new task"
-            required
-          />
-          <button type="submit">Add Task</button>
-        </form>
-      </section>
-
-      <!-- Task List Section -->
-      <section id="task-list">
-        <h2>Your Tasks</h2>
-        <ul>
-          <li>
-            <span>Sample Task 1</span>
-            <button>Complete</button>
-            <button>Delete</button>
-          </li>
-          <li>
-            <span>Sample Task 2</span>
-            <button>Complete</button>
-            <button>Delete</button>
-          </li>
-        </ul>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2024 To-Do List App. All rights reserved.</p>
-    </footer>
+    <h1>Simple Calculator</h1>
+    <input id="num1" type="number" placeholder="Enter first number" />
+    <input id="num2" type="number" placeholder="Enter second number" />
+    <select id="operation">
+      <option value="add">Add</option>
+      <option value="subtract">Subtract</option>
+      <option value="multiply">Multiply</option>
+      <option value="divide">Divide</option>
+    </select>
+    <button onclick="calculate()">Calculate</button>
+    <p id="result">Result:</p>
+    <script src="script.js"></script>
   </body>
 </html>

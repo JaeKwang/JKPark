@@ -1,0 +1,26 @@
+.grid-mixed {
+  display: grid;
+  grid-template-columns: 200px 1fr auto; /* 고정, 비율, 자동 크기 혼합 */
+  gap: 10px;
+}
+
+.box {
+  background-color: #2980b9;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
