@@ -1,0 +1,40 @@
+#todo-input {
+  width: calc(100% - 90px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#add-btn {
+  padding: 10px;
+  border: none;
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#add-btn:hover {
+  background-color: #27ae60;
+}
+
+#todo-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+#todo-list li {
+  padding: 10px;
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#todo-list li:hover {
+  background-color: #f1f1f1;
+}
