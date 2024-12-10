@@ -15,7 +15,7 @@ async function searchMovies(query) {
       displayMovies(data.Search);
     } else moviesContainer.innerHTML = `<p>${data.Error}</p>`;
   } catch (error) {
-    moviesContainer.innerHTML = `<p>Error fetching movies. Please ry again.${error}</p>`;
+    moviesContainer.innerHTML = `<p>Error fetching movies. Please try again.${error}</p>`;
   }
 }
 
