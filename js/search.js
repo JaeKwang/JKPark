@@ -1,11 +1,10 @@
-const API_KEY = "8f7e3c01";
-const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
+import { API_URL } from "./config.js";
 
 const searchInput = document.getElementById("search-input");
 const moviesContainer = document.getElementById("movies-container");
 const favoritesContainer = document.getElementById("favorites-container");
 
-let favorite = [];
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
 async function searchMovies(query) {
   try {
@@ -29,7 +28,7 @@ function displayMovies(movies) {
     movieCard.id = element.imdbID;
     movieCard.innerHTML = `
     <img class="icon" src=${
-      favorite.includes(element.imdbID)
+      favorites.includes(element.imdbID)
         ? "assets/star-full.png"
         : "assets/star.png"
     } />
@@ -50,8 +49,8 @@ function displayMovies(movies) {
 }
 
 function toggleFavorite(id) {
-  if (favorite.includes(id)) favorite = favorite.filter((v) => v !== id);
-  else favorite.push(id);
+  if (favorites.includes(id)) favorites = favorites.filter((v) => v !== id);
+  else favorites.push(id);
 
   updateFavorites();
 
@@ -61,7 +60,7 @@ function toggleFavorite(id) {
     const imdbID = card.id;
 
     if (icon && imdbID) {
-      icon.src = favorite.includes(imdbID)
+      icon.src = favorites.includes(imdbID)
         ? "assets/star-full.png"
         : "assets/star.png";
     }
@@ -69,10 +68,10 @@ function toggleFavorite(id) {
 }
 
 async function updateFavorites() {
-  localStorage.setItem("favorites", JSON.stringify(favorite));
+  localStorage.setItem("favorites", JSON.stringify(favorites));
   favoritesContainer.innerHTML = "";
 
-  for (const id of favorite) {
+  for (const id of favorites) {
     await fetchMovieById(id);
   }
 }
@@ -88,7 +87,7 @@ async function fetchMovieById(id) {
       movieCard.id = data.imdbID;
       movieCard.innerHTML = `
       <img class="icon" src=${
-        favorite.includes(data.imdbID)
+        favorites.includes(data.imdbID)
           ? "assets/star-full.png"
           : "assets/star.png"
       } />
@@ -109,7 +108,7 @@ async function fetchMovieById(id) {
       favoritesContainer.appendChild(movieCard);
     } else favoritesContainer.innerHTML = `<p>${data.Error}</p>`;
   } catch (error) {
-    favoritesContainer.innerHTML = `<p>Error fetching movies. Please ry again.${error}</p>`;
+    favoritesContainer.innerHTML = `<p>Error fetching movies. Please try again.${error}</p>`;
   }
 }
 
@@ -118,5 +117,4 @@ document.getElementById("search-btn").addEventListener("click", () => {
   searchMovies(query);
 });
 
-favorite = JSON.parse(localStorage.getItem("favorites"));
 updateFavorites();
